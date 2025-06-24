@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курс по SMM и маркетингу | TARGET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ОБЩИЕ СТИЛИ И СБРОС --- */
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #185a9d; /* Запасной фон */
+        }
+
+        /* --- АНИМИРОВАННЫЙ ФОН (перевод вашего SCSS в CSS) --- */
+        .background {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .blue-purple {
+            background-image: linear-gradient(to right, #1D2B64, #F8CDDA);
+            animation: fadeOutIn 20s ease infinite;
+        }
+
+        .green-blue {
+            background-image: linear-gradient(to right, #43cea2, #185a9d);
+            animation: fadeInOut 20s ease infinite;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeOutIn {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
+        /* --- КОНТЕЙНЕР ДЛЯ ВСЕГО КОНТЕНТА --- */
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* --- НОВЫЙ SVG ЛОГОТИП И ЕГО АНИМАЦИЯ --- */
+        .svg-wrapper {
+            width: 120px;
+            height: 120px;
+        }
+
+        #logo-fill {
+            fill: #fff;
+            opacity: 0;
+            animation: fadeIn 1s ease 1.5s forwards;
+        }
+
+        #logo-outline {
+            stroke: rgba(255, 255, 255, 0.8);
+            stroke-width: 8px;
+            fill: none;
+            opacity: 0;
+            animation: fadeIn 1s ease 0.5s forwards, fadeOut 1s ease 2s forwards;
+        }
+        
+        /* --- ТЕКСТОВЫЙ КОНТЕНТ --- */
+        .text-content {
+            margin-top: 20px;
+        }
+
+        .text-content h1, .text-content p {
+            color: #fff;
+            opacity: 0;
+            animation: fadeInUp 1s ease 2.5s forwards;
+        }
+
+        .text-content h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .text-content p {
+            font-size: 1rem;
+            margin-top: 8px;
+            animation-delay: 2.7s; /* Появляется чуть позже заголовка */
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        /* --- КНОПКА СТАРТ --- */
+        .start-button {
+            position: absolute;
+            bottom: 40px;
+            padding: 14px 40px;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: background-color 0.3s, color 0.3s;
+            opacity: 0;
+            animation: fadeInUp 1s ease 3s forwards;
+        }
+
+        .start-button:hover {
+            background-color: #fff;
+            color: #185a9d;
+        }
+        
+        /* --- Общие анимации для контента --- */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Анимированный фон -->
+    <div class="background blue-purple"></div>
+    <div class="background green-blue"></div>
+
+    <!-- Основной контент -->
+    <div class="content-wrapper">
+        <div class="svg-wrapper">
+            <!-- Новый логотип-мишень -->
+            <svg viewBox="0 0 100 100">
+                <!-- Заливка, появляется позже -->
+                <g id="logo-fill">
+                    <circle cx="50" cy="50" r="12" />
+                    <path d="M50,0 A50,50 0 0,1 50,100 A50,50 0 0,1 50,0 Z M50,28 A22,22 0 1,0 50,72 A22,22 0 1,0 50,28 Z" />
+                </g>
+                <!-- Контур, появляется и исчезает -->
+                <g id="logo-outline">
+                    <circle cx="50" cy="50" r="46" />
+                    <circle cx="50" cy="50" r="22" />
+                    <circle cx="50" cy="50" r="12" />
+                </g>
+            </svg>
+        </div>
+
+        <div class="text-content">
+            <h1>TARGET:</h1>
+            <h1></h1>Digital Marketing</h1>
+            <p>Маркетинг в интернете и социальных сетях</p>
+        </div>
+
+        <a href="main.html" class="start-button">СТАРТ</a>
+    </div>
+
+</body>
+</html>

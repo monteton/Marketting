@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Программа курса | TARGET</title>
+    <!-- Подключаем тот же шрифт, что и на главной -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- ОБЩИЕ СТИЛИ И СБРОС --- */
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #185a9d; /* Запасной фон */
+        }
+
+        /* --- АНИМИРОВАННЫЙ ФОН (тот же, что и на главной) --- */
+        .background {
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+        }
+
+        .blue-purple {
+            background-image: linear-gradient(to right, #1D2B64, #F8CDDA);
+            animation: fadeOutIn 20s ease infinite;
+        }
+
+        .green-blue {
+            background-image: linear-gradient(to right, #43cea2, #185a9d);
+            animation: fadeInOut 20s ease infinite;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeOutIn {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* --- КОНТЕЙНЕР ДЛЯ КОНТЕНТА --- */
+        .page-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            padding: 30px 15px 100px 15px; /* Отступ для нижнего меню */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto; /* Прокрутка, если контента много */
+            box-sizing: border-box;
+        }
+
+        .page-container h1 {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* --- КНОПКИ МОДУЛЕЙ И РАЗДЕЛОВ --- */
+        .module-grid {
+            width: 100%;
+            max-width: 480px;
+            display: grid;
+            grid-template-columns: 1fr; /* Одна колонка по умолчанию */
+            gap: 12px;
+        }
+        
+        .module-button {
+            display: block;
+            padding: 16px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .module-button:active {
+            transform: scale(0.98);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* --- НИЖНЕЕ МЕНЮ НАВИГАЦИИ --- */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 0.75rem;
+            font-weight: 500;
+            flex-grow: 1;
+            height: 100%;
+            transition: color 0.2s, background-color 0.2s;
+        }
+        
+        .nav-item:active {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-item svg {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 5px;
+            fill: currentColor;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Анимированный фон -->
+    <div class="background blue-purple"></div>
+    <div class="background green-blue"></div>
+    
+    <div class="page-container">
+        <h1>Программа курса</h1>
+
+        <div class="module-grid">
+            <a href="module-1-basics.html" class="module-button">МОДУЛЬ 1: ОСНОВЫ МАРКЕТИНГА</a>
+            <a href="module-2-seo.html" class="module-button">МОДУЛЬ 2: SEO-ОПТИМИЗАЦИЯ</a>
+            <a href="module-3-smm.html" class="module-button">МОДУЛЬ 3: SMM-ПРОДВИЖЕНИЕ</a>
+            <a href="module-4-content.html" class="module-button">МОДУЛЬ 4: КОНТЕНТ-МАРКЕТИНГ</a>
+            <a href="module-5-ads.html" class="module-button">МОДУЛЬ 5: ТАРГЕТИРОВАННАЯ РЕКЛАМА</a>
+            <a href="module-6-analytics.html" class="module-button">МОДУЛЬ 6: АНАЛИТИКА И ОТЧЕТНОСТЬ</a>
+            <a href="materials.html" class="module-button">ДОПОЛНИТЕЛЬНЫЕ МАТЕРИАЛЫ</a>
+            <a href="practice.html" class="module-button">ПРАКТИЧЕСКИЕ ЗАДАНИЯ</a>
+            <a href="chat.html" class="module-button">ЧАТ КУРСА</a>
+        </div>
+    </div>
+
+    <!-- Нижнее меню -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="nav-item">
+            <!-- Иконка "Главная" -->
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Главная</span>
+        </a>
+        <a href="chat.html" class="nav-item">
+            <!-- Иконка "Чат" -->
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+            <span>Чат</span>
+        </a>
+        <a href="javascript:history.back()" class="nav-item">
+            <!-- Иконка "Назад" -->
+            <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+            <span>Назад</span>
+        </a>
+    </nav>
+
+</body>
+</html>
